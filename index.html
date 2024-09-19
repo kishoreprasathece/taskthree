@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Flip Game</title>
+    <style>
+
+.head{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+background-color: black;
+color:hotpink;
+}
+
+
+#brain{
+    width: 100px;
+    height: 100px;
+}
+
+
+.box{
+    display:flex;
+    flex-wrap: wrap;
+margin-bottom: -2%;
+}
+.boxx{
+    background-color: aliceblue;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.button{
+
+    margin-left: 40%;
+    margin-top: 40%;
+}
+.p{
+    width:180px ;
+    height:150px ;
+    border: 2px solid black;
+    background-color: white;
+}
+#fl{
+        color: blueviolet;
+    }
+
+#test{
+    color:white;
+    margin-right: 10%;
+    margin-bottom: 2%;
+}
+.end{
+width: 400px;
+margin: 3%;
+    background-color:powderblue;
+    color: white;
+    justify-content: space-between;
+}
+
+#content{
+    display: inline-block;
+    justify-content: space-evenly;
+    margin: 30px;
+    color: white;
+    font-size: xx-large;
+    
+}
+
+    </style>
+</head>
+<body>
+
+    <header class="head" >
+        <img id="brain" src="image/brainlogo.jpg">
+
+            <h1>Cerebral  <span id="fl" >Flip Frenzy</span></h1>
+            <h2 id="test" >Sharpen Your Mind</h2>
+   
+        
+    </header>
+<main class=boxx >
+
+<div>
+    <div class="box" >
+<p class="p" ><button class="button" >1</button></p>
+<p class="p" ><button class="button" >2</button></p>
+<p class="p" ><button class="button" >3</button></p>
+<p class="p" ><button class="button" >4</button></p>
+<p class="p" ><button class="button" >5</button></p>
+</div>
+<div class="box" >
+<p class="p" ><button class="button" >6</button></p>
+<p class="p" ><button class="button" >7</button></p>
+<p class="p" ><button class="button" >8</button></p>
+<p class="p" ><button class="button" >9</button></p>
+<p class="p" ><button class="button" >10</button></p>
+</div>
+    <div class="box" >
+<p class="p" ><button class="button" >11</button></p>
+<p class="p" ><button class="button" >12</button></p>
+<p class="p" ><button class="button" >13</button></p>
+<p class="p" ><button class="button" >14</button></p>
+<p class="p" ><button class="button" >15</button></p>
+</div>
+<div class="box" >
+<p class="p" ><button class="button" >16</button></p>
+<p class="p" ><button class="button" >17</button></p>
+<p class="p" ><button class="button" >18</button></p>
+<p class="p" ><button class="button" >19</button></p>
+<p class="p" ><button class="button" >20</button></p>
+</div>
+</div>
+
+<div class="end" >
+    <div id="content" >
+    <p>pairs:</p>
+    <p>flip:</p>
+
+   <p> <button>start</button></p>
+   <p>   <button>restart</button></p>
+</div>
+</div>
+
+
+
+
+
+
+</main>
+   
+
+</body>
+</html>
