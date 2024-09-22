@@ -15,12 +15,15 @@
         vertical-align: middle;
         line-height: 60px;
         font-size: 48px;
-        transition: transform 0.6s;
+        transition:transform 0.3s;
     }
     
     .board {
         display: table;
         clear: both;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        margin-left: 20%;
     } 
     #brain{
         width: 100px;
@@ -38,6 +41,7 @@
         background-color: aliceblue;
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-between;
     }
     
     
@@ -61,17 +65,37 @@
     }
     .end{
     width: 400px;
-    margin: 3%;
-        background-color:powderblue;
-        color: white;
+
+       
         justify-content: space-between;
+        margin-right: 4%;
     }
     
     #content{
         display: inline-block;
         justify-content: space-evenly;
         margin: 30px;
-        color: white;
+        color:hotpink;
         font-size: xx-large;
         
     }
+.copy{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 100px;
+    background-color: #000;
+    color: aliceblue;
+    font-weight: bold;
+
+   
+}
+#right{
+    margin-top: 1%;
+    margin-right: 2%;
+}
+#restart{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}

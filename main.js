@@ -56,12 +56,12 @@ for (let i = 0; i < squares.length; i++) {
 
 }
 
-function click(){
+function click(index){
     if(color){
-color.i===color.i;
+squares.i===squares.i;
 return true;
     }else{
-        !color.i===color.i;
+        !squares.i===squares.i;
         return false;
     }
 }
