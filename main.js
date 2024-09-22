@@ -1,116 +1,71 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('.button');
-    const pairCountElement = document.querySelector('.end p:nth-child(1)');
-    const flipCountElement = document.querySelector('.end p:nth-child(2)');
-    const startButton = document.querySelector('.end button:nth-child(1)');
-    const restartButton = document.querySelector('.end button:nth-child(2)');
+ function createBoard() {
+     let container = document.querySelector('.container');
+     let board = document.createElement('div');
+     board.setAttribute('class', 'board');
+  
+     for (let row = 1; row <= 4; row++) {
+         let rowElement = document.createElement('div');
+         rowElement.setAttribute('class', 'row');
     
-    let firstPick = null;
-    let secondPick = null;
-    let flips = 0;
-    let pairs = 0;
-    let isClickable = true;
+         for (let square = 1; square <= 5; square++) {
+             let squareElement = document.createElement('button');
+             squareElement.setAttribute('class', 'square');
+             rowElement.appendChild(squareElement);
 
-    // Color pair array for 20 buttons, 10 pairs (2 of each color)
-    const colors = [
-        'red', 'blue', 'green', 'yellow', 'orange', 
-        'purple', 'pink', 'brown', 'cyan', 'lime',
-        'red', 'blue', 'green', 'yellow', 'orange', 
-        'purple', 'pink', 'brown', 'cyan', 'lime'
-    ];
+         }
+    
+         board.appendChild(rowElement);
+     }
+  
+     container.appendChild(board);
+ }
+  
+createBoard();
 
-    // Function to shuffle colors
-    function shuffle(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-    }
+let firstPick = null;
+let secondPick = null;
+let flips = 0;
+let pairs = 0;
+let restart=null;
+let isClickable = true; 
 
-    // Function to initialize the game
-    function initializeGame() {
-        shuffle(colors);
-        buttons.forEach((button, index) => {
-            button.style.backgroundColor = '';  // Reset button colors
-            button.dataset.color = colors[index];  // Assign a shuffled color
-            button.disabled = false;  // Enable all buttons
-        });
-        firstPick = null;
-        secondPick = null;
-        flips = 0;
-        pairs = 0;
-        isClickable = true;
-        updateScores();
-    }
+const color = [
+    'red', 'blue', 'green', 'yellow', 'orange', 
+    'purple', 'pink', 'brown', 'cyan', 'lime',
+    'red', 'blue', 'green', 'yellow', 'orange', 
+    'purple', 'pink', 'brown', 'cyan', 'lime'
+];
 
-    // Update pair and flip counts in the UI
-    function updateScores() {
-        pairCountElement.textContent = `Pairs: ${pairs}`;
-        flipCountElement.textContent = `Flips: ${flips}`;
-    }
 
-    // Function to handle button click
-    function handleButtonClick(event) {
-        if (!isClickable) return;  // Prevent clicks when waiting for reveal
-        const button = event.target;
+let squares = document.getElementsByClassName('square');
 
-        // Prevent the same button from being clicked twice
-        if (button === firstPick) return;
+for (let i = 0; i < squares.length; i++) {
+    squares[i].addEventListener('click', function() {
+       
+        squares[i].style.backgroundColor = color[i];
 
-        // Reveal button color
-        button.style.backgroundColor = button.dataset.color;
-        flips++;
-        updateScores();
+        
+        squares[i].style.transform = 'rotate(180deg)';
 
-        // If this is the first pick
-        if (!firstPick) {
-            firstPick = button;
-        } else {
-            secondPick = button;
-            checkMatch();
-        }
-    }
-
-    // Check if two selected buttons match
-    function checkMatch() {
-        const isMatch = firstPick.dataset.color === secondPick.dataset.color;
-
-        if (isMatch) {
-            pairs++;
-            firstPick.disabled = true;
-            secondPick.disabled = true;
-            resetPicks();
-        } else {
-            isClickable = false;
-            // Hide both buttons after a short delay if no match
-            setTimeout(() => {
-                firstPick.style.backgroundColor = '';
-                secondPick.style.backgroundColor = '';
-                resetPicks();
-                isClickable = true;
-            }, 1000);
-        }
-
-        updateScores();
-    }
-
-    // Reset selected buttons after a match or mismatch
-    function resetPicks() {
-        firstPick = null;
-        secondPick = null;
-    }
-
-    // Event listeners for the buttons
-    buttons.forEach(button => {
-        button.addEventListener('click', handleButtonClick);
+       
+        setTimeout(() => {
+            squares[i].style.backgroundColor = '';
+            squares[i].style.transform = 'rotate(0deg)';
+        }, 600);
     });
 
-    // Event listener for the start button
-    startButton.addEventListener('click', initializeGame);
+}
 
-    // Event listener for the restart button
-    restartButton.addEventListener('click', initializeGame);
+function click(){
+    if(color){
+color.i===color.i;
+return true;
+    }else{
+        !color.i===color.i;
+        return false;
+    }
+}
+click();
 
-    // Initialize the game when the page loads
-    initializeGame();
-});
+ isClickable =click();
+
