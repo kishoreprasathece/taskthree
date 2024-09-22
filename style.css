@@ -99,3 +99,62 @@
     height: 50px;
     cursor: pointer;
 }
+
+@media (max-width: 768px) {
+    .square {
+        float: left;
+        width: 70px;
+        height: 70px;
+        border: 3px solid #000;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 60px;
+        font-size: 48px;
+        transition:transform 0.3s;
+    }
+    
+    .board {
+        display: table;
+        clear: both;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        margin-left: 20%;
+    }
+    
+    .end{
+        width: 140px;
+        
+    gap: 4%;
+            justify-content: space-between;
+            margin-right: 4%;
+        }
+        
+        #content{
+            display: flex;     
+    justify-content: space-around;
+    gap: 6%;
+            color:rgb(194, 12, 103);
+            font-size: large;
+            
+      
+}
+#test{
+    display: none;
+
+}
+#fl{
+    color: blueviolet;
+    margin-right: 3%;
+}
+.copy{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 60px;
+    background-color: #000;
+    color: aliceblue;
+    font-weight: bold;
+
+   
+}
+}
