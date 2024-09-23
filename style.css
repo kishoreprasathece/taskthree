@@ -116,9 +116,7 @@
     .board {
         display: table;
         clear: both;
-        margin-top: 5%;
-        margin-bottom: 5%;
-        margin-left: 20%;
+        margin: 5%;
     }
     
     .end{
@@ -138,12 +136,27 @@
             
       
 }
+.head{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: black;
+    color:yellow
+    }
+    #brain{
+        width: 80px;
+        height: 110px;
+        margin-bottom: 1%;
+    }
+
+
+
 #test{
     display: none;
 
 }
 #fl{
-    color: blueviolet;
+    color: rgb(226, 43, 177);
     margin-right: 3%;
 }
 .copy{
