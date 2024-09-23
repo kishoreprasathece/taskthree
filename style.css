@@ -100,7 +100,7 @@
     cursor: pointer;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
     .square {
         float: left;
         width: 70px;
@@ -139,7 +139,7 @@
 .head{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     background-color: black;
     color:yellow
     }
