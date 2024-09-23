@@ -10,7 +10,6 @@ function createBoard() {
         for (let square = 1; square <= 5; square++) {
             let squareElement = document.createElement('button');
             squareElement.setAttribute('class', 'square');
-            squareElement.setAttribute('data-index', (row - 1) * 5 + (square - 1));
             rowElement.appendChild(squareElement);
         }
 
@@ -33,6 +32,7 @@ const colors = [
     'purple', 'pink', 'brown', 'cyan', 'lime'
 ];
 
+let shuffledColors = [...colors];
 
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -41,32 +41,36 @@ function shuffle(array) {
     }
 }
 
-shuffle(colors);
+shuffle(shuffledColors);
 
 let restartButton = document.getElementById('restart');
 restartButton.addEventListener('click', function() {
-    shuffle(colors);
-    resetBoard();
+    shuffle(shuffledColors);  
+    resetBoard();            
 });
+
 
 function resetBoard() {
     let squares = document.getElementsByClassName('square');
     for (let square of squares) {
-        square.style.backgroundColor = '';
-        square.style.transform = '';
+        square.style.backgroundColor = ''; 
+        square.style.transform = '';       
+        square.style.pointerEvents = 'auto'; 
     }
     firstPick = null;
     secondPick = null;
     isClickable = true;
 }
 
-let squares = document.getElementsByClassName('square');
 
-for (let i = 0; i < squares.length; i++) {
+
+let squares = document.getElementsByClassName('square');
+for (let i = 0; i < squares.length; i++) { 
     squares[i].addEventListener('click', function() {
         if (!isClickable || this.style.backgroundColor !== '') return;
 
-        this.style.backgroundColor = colors[i];
+
+        this.style.backgroundColor = shuffledColors[i];
         this.style.transform = 'rotate(180deg)';
 
         if (!firstPick) {
@@ -76,15 +80,17 @@ for (let i = 0; i < squares.length; i++) {
             isClickable = false;
 
             setTimeout(() => {
-                if (colors[firstPick.getAttribute('data-index')] === colors[secondPick.getAttribute('data-index')]) {
-                    // It's a match
+                // Check if colors match
+                if (firstPick.style.backgroundColor === secondPick.style.backgroundColor) {
+                    // Match: Disable clicking on the matched squares
                     firstPick.style.pointerEvents = 'none'; 
                     secondPick.style.pointerEvents = 'none';
                 } else {
-                    // Not a match
+                    // Not a match: Hide the colors again
                     firstPick.style.backgroundColor = '';
                     secondPick.style.backgroundColor = '';
-                }
+                } 
+           
                 firstPick = null;
                 secondPick = null;
                 isClickable = true;
@@ -92,3 +98,5 @@ for (let i = 0; i < squares.length; i++) {
         }
     });
 }
+
+
